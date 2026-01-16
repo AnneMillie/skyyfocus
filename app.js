@@ -115,7 +115,7 @@ document.getElementById("boardingBtn").onclick = () => {
                     document.querySelectorAll(".seat-box").forEach(s => s.classList.remove("selected"));
                     box.classList.add("selected");
                     document.getElementById("confirmSeatBtn").disabled = false;
-                    document.getElementById("selectedSeatLabel").innerText = `Economy Seat ${i}${type} Selected`;
+                    document.getElementById("selectedSeatLabel").innerText = `Seat ${i}${type} `;
                 };
             }
             seatMap.appendChild(box);
@@ -157,5 +157,6 @@ document.getElementById("confirmSeatBtn").onclick = () => {
 };
 
 document.getElementById("backToMapBtn").onclick = () => document.getElementById("airplaneView").classList.add("hidden");
+
 
 init();
