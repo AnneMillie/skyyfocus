@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]  # Change this if your branch is named 'master'
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: "npm"
+          # Removed cache line to prevent the "lock file not found" error
 
       - name: Install dependencies
         run: npm install
@@ -32,7 +32,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./dist"  # Use "./build" if you are NOT using Vite
+          # If your site is blank later, we might need to change 'dist' to 'build'
+          path: "./dist" 
 
   deploy:
     environment:
